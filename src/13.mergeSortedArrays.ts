@@ -4,7 +4,7 @@ function sort(arr) {
     for (let j = i + 1; j < arr.length; j++) {
       if (arr[j] < arr[minIndex]) minIndex = j;
     }
-    let tmp = arr[i];
+    const tmp = arr[i];
     arr[i] = arr[minIndex];
     arr[minIndex] = tmp;
   }
@@ -21,4 +21,4 @@ function mergeSortedArrays(...args) {
   return sort(buildArr);
 }
 
-const res = mergeSortedArrays([1, 37, 5], [2, 4, 6]); //[1, 2, 3, 4, 5, 6]
+mergeSortedArrays([1, 37, 5], [2, 4, 6]); //[1, 2, 3, 4, 5, 6]

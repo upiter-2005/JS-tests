@@ -1,6 +1,6 @@
 function flatten(array) {
   const resArray = [];
-  for (let el of array) {
+  for (const el of array) {
     if (Array.isArray(el)) {
       resArray.push(...flatten(el));
     } else {

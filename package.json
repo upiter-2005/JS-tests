@@ -6,12 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint",
-    "prepare": "husky"
+    "lint:fix": "eslint src --fix --no-cache --max-warnings=0",
+    "prepare": "husky",
+    "prettier": "npx prettier . --write"
   },
   "author": "",
   "license": "ISC",
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": [
+      "eslint src ",
+      "prettier --write --ignore-unknown"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

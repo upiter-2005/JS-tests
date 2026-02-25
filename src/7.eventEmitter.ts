@@ -16,7 +16,7 @@ class EventEmitter {
 
   emmit(name, ...args) {
     if (!this.events[name]) return;
-    for (let listener of this.events[name]) {
+    for (const listener of this.events[name]) {
       listener(...args);
     }
   }
@@ -26,7 +26,7 @@ const e = new EventEmitter();
 
 function handle(...val) {
   console.log("start");
-  for (let el of val) {
+  for (const el of val) {
     console.log(el);
   }
   console.log("end;");
