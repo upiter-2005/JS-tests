@@ -1,15 +1,15 @@
-function memoize(fn){
+function memoize(fn) {
   let cache = null;
   let prevValue;
 
-  return function(x){
-    if(!cache || prevValue !== x  ){
-      prevValue = x
-      cache = fn.apply(this,x)
+  return function (x) {
+    if (!cache || prevValue !== x) {
+      prevValue = x;
+      cache = fn.apply(this, x);
       console.log("new call");
     }
     return cache;
-  }
+  };
 }
 
 const slowFunction = (x) => x * 2;
