@@ -1,18 +1,18 @@
 function once(fn){
-  let resultVal;
+  let resultValue;
   let called = false;
   return function(...args){
     if(!called){
       called = true
-      resultVal = fn.apply(this, args)
+      resultValue = fn.apply(this, args)
     }
-      return resultVal
+    return resultValue
   }
 }
 
 const init = once(() => console.log('Ініціалізація'));
-init(); // "Ініціалізація"
-init(); // нічого не відбувається
+init(); 
+init(); 
 init();
 init();
 
