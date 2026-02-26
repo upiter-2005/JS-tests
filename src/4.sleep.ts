@@ -1,17 +1,15 @@
-// return new Promise возвращает объект который можно await
-// async delay way
-function sleep(delay) {
+function sleep(delay: number) {
   return new Promise((resolve) => {
     setTimeout(function () {
-      resolve();
+      resolve(1);
     }, delay);
   });
 }
 
-async function doSmth() {
-  console.log(1);
+async function doSmth(): Promise<void> {
+  //console.log(1);
   await sleep(2500);
-  console.log(3);
+  //console.log(3);
 }
 doSmth();
 //////////////////////////////////////////////////////
