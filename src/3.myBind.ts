@@ -1,6 +1,13 @@
+declare module "function-module" {
+  global {
+    interface Function {
+      myBind(fn: () => void): () => void;
+    }
+  }
+}
+
 Function.prototype.myBind = function (context) {
   return () => {
-    console.log(this);
     this.apply(context);
   };
 };
