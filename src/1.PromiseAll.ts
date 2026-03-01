@@ -7,8 +7,8 @@ const urls = [
   2,
 ];
 
-Promise.myAll = function (promises: Promise<T>) {
-  const result = [];
+const promiseMyAll = function (promises: []) {
+  const result: Promise = [];
   let count = 0;
 
   return new Promise((resolve, reject) => {
@@ -24,6 +24,6 @@ Promise.myAll = function (promises: Promise<T>) {
   });
 };
 
-Promise.myAll(urls)
+promiseMyAll(urls)
   .then((res) => console.log(res))
   .catch((err) => console.log(err));
