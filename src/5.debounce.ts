@@ -1,5 +1,5 @@
 function myDebounce<T extends string>(fn: (args: T) => void, delay: number) {
-  let timerId: number;
+  let timerId: NodeJS.Timeout;
 
   return function (args: T): void {
     clearTimeout(timerId);

@@ -6,12 +6,14 @@ function sleep(delay: number) {
   });
 }
 
-async function doSmth(): Promise<void> {
-  //console.log(1);
+export async function doSmth(): Promise<void> {
+  console.log(1);
   await sleep(2500);
-  //console.log(3);
+  console.log(3);
 }
-doSmth();
+
+// doSmth();
+
 //////////////////////////////////////////////////////
 
 //sync delay way
