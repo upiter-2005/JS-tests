@@ -1,15 +1,11 @@
-declare module "string-module" {
-  global {
-    interface String {
-      sayHi(value: string): string;
-    }
+export {};
+
+declare global {
+  interface String {
+    sayHi(value: string): string;
   }
 }
 
 String.prototype.sayHi = function (value: string): string {
-  return `Hello from:  ${value} `;
+  return `Hello from: ${value} - ${this}`;
 };
-
-const str = "";
-const res = str.sayHi("rtyrtyrtyrty");
-console.log(res);
