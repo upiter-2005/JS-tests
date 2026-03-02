@@ -1,17 +1,18 @@
-function once(fn) {
-  let resultValue;
+export function once<T>(fn: (args: T[]) => T): (args: T) => T {
+  let resultValue: T;
   let called = false;
   return function (...args) {
     if (!called) {
       called = true;
-      resultValue = fn.apply(this, args);
+      resultValue = fn(args);
+      console.log("called");
     }
     return resultValue;
   };
 }
 
-const init = once(() => console.log("Ініціалізація"));
-init();
-init();
-init();
-init();
+// const init = once(() => console.log("Initialize func callback! "));
+// init();
+// init();
+// init();
+// init();
