@@ -1,7 +1,7 @@
 import { doSmth } from "./4.sleep.ts";
 
-describe("sleep function test", () => {
-  test("check execution order ", async () => {
+describe("sleep", () => {
+  test("should check execution order ", async () => {
     jest.useFakeTimers();
 
     const consoleFunc = jest.spyOn(console, "log").mockImplementation(() => {});

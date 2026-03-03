@@ -1,7 +1,7 @@
 import { promiseMyAll } from "./1.PromiseAll.ts";
 
 describe("promiseAll", () => {
-  test("success all promises", async () => {
+  test("should success all promises", async () => {
     const promises = [
       Promise.resolve(1),
       Promise.resolve(2),
@@ -13,20 +13,20 @@ describe("promiseAll", () => {
     const result = await promiseMyAll(promises);
     expect(result).toEqual([1, 2, 3, 4, 5]);
   });
+  test("should check order", async () => {
+    jest.useFakeTimers();
 
-  test("check order", async () => {
     const firstPromise = Promise.resolve(1);
-    const secondPromise = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(2);
-      }, 1000);
-    });
+
+    jest.advanceTimersByTime(1000);
+
+    const secondPromise = Promise.resolve(2);
 
     const result = await promiseMyAll([firstPromise, secondPromise]);
     expect(result).toEqual([1, 2]);
   });
 
-  test("reject test", async () => {
+  test("should reject test", async () => {
     const promises = [
       Promise.resolve(1),
       Promise.reject(new Error("Promise rejected!")),
