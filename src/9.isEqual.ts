@@ -14,7 +14,3 @@ Array.prototype.isEqual = function (array) {
   }
   return true;
 };
-
-// const arr = [6, 7, "8"];
-
-// console.log(arr.isEqual([6, 7, "8"]));
