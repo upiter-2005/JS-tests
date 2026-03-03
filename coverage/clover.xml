@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1772556889366" clover="3.2.0">
-  <project timestamp="1772556889367" name="All files">
+<coverage generated="1772558615366" clover="3.2.0">
+  <project timestamp="1772558615366" name="All files">
     <metrics statements="112" coveredstatements="112" conditionals="29" coveredconditionals="29" methods="7" coveredmethods="7" elements="148" coveredelements="148" complexity="0" loc="112" ncloc="112" packages="1" files="6" classes="6"/>
     <file name="1.PromiseAll.ts" path="C:\Users\Pavel\Desktop\Задачи JS\js_core_tests\src\1.PromiseAll.ts">
       <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
