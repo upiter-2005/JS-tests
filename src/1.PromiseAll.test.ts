@@ -1,6 +1,13 @@
 import { promiseMyAll } from "./1.PromiseAll.ts";
 
 describe("promiseAll", () => {
+  test("should return empty array promise", async () => {
+    const promises: Promise<number>[] = [];
+
+    const result = await promiseMyAll(promises);
+    expect(result).toEqual([]);
+  });
+
   test("should success all promises", async () => {
     const promises = [
       Promise.resolve(1),
@@ -13,6 +20,7 @@ describe("promiseAll", () => {
     const result = await promiseMyAll(promises);
     expect(result).toEqual([1, 2, 3, 4, 5]);
   });
+
   test("should check order", async () => {
     jest.useFakeTimers();
 

@@ -1,29 +1,20 @@
-// type PromiseArray = unknown[];
-
-// const urls: PromiseArray = [
-//   fetch("https://api.github.com/users/jeresig"),
-//   fetch("https://drivovo.ua/wp-json/custom/v1/typesCar?body_type=suv"),
-//   fetch("https://api.github.com/users/remy"),
-//   fetch("https://api.github.com/users/jeressdadasdasdig"),
-//   1,
-//   2,
-// ];
-
 export const promiseMyAll = function <T>(
   promises: (T | Promise<T>)[],
 ): Promise<T[]> {
+  if (!promises.length) return Promise.resolve([]);
+
   const result: T[] = [];
   let count = 0;
 
   return new Promise((resolve, reject) => {
     promises.forEach((pr, i: number) => {
       Promise.resolve(pr)
-        .then((res) => {
-          result[i] = res as Awaited<T>;
+        .then((res: Awaited<T>) => {
+          result[i] = res;
           count++;
           if (promises.length === count) resolve(result);
         })
-        .catch((err) => reject(err));
+        .catch((err: string) => reject(err));
     });
   });
 };
