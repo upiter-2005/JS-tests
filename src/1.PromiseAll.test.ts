@@ -8,6 +8,20 @@ describe("promiseAll", () => {
     expect(result).toEqual([]);
   });
 
+  test("should obtain mixed elements", async () => {
+    const promises = [
+      Promise.resolve(1),
+      2,
+      Promise.resolve(3),
+      4,
+      true,
+      Promise.resolve(5),
+    ];
+
+    const result = await promiseMyAll(promises);
+    expect(result).toEqual([1, 2, 3, 4, true, 5]);
+  });
+
   test("should success all promises", async () => {
     const promises = [
       Promise.resolve(1),
