@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1772616308838" clover="3.2.0">
-  <project timestamp="1772616308838" name="All files">
-    <metrics statements="151" coveredstatements="151" conditionals="50" coveredconditionals="50" methods="10" coveredmethods="10" elements="211" coveredelements="211" complexity="0" loc="151" ncloc="151" packages="1" files="9" classes="9"/>
+<coverage generated="1772616954496" clover="3.2.0">
+  <project timestamp="1772616954496" name="All files">
+    <metrics statements="162" coveredstatements="162" conditionals="51" coveredconditionals="51" methods="11" coveredmethods="11" elements="224" coveredelements="224" complexity="0" loc="162" ncloc="162" packages="1" files="10" classes="10"/>
     <file name="1.PromiseAll.ts" path="C:\Users\Pavel\Desktop\Задачи JS\js_core_tests\src\1.PromiseAll.ts">
       <metrics statements="20" coveredstatements="20" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
@@ -45,6 +45,20 @@
       <line num="16" count="1" type="stmt"/>
       <line num="17" count="1" type="stmt"/>
       <line num="18" count="1" type="stmt"/>
+    </file>
+    <file name="16.generateId.ts" path="C:\Users\Pavel\Desktop\Задачи JS\js_core_tests\src\16.generateId.ts">
+      <metrics statements="11" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+      <line num="4" count="2" type="stmt"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="11" count="2" type="stmt"/>
     </file>
     <file name="17.memoize.ts" path="C:\Users\Pavel\Desktop\Задачи JS\js_core_tests\src\17.memoize.ts">
       <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>

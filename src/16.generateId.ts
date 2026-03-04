@@ -1,4 +1,4 @@
-export function generateId(length: number): string {
+export function generateId(length: number = 8): string {
   const chars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let result = "";
@@ -9,4 +9,3 @@ export function generateId(length: number): string {
   }
   return result + base;
 }
-// console.log(generateId(10));
