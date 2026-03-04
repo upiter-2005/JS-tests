@@ -1,8 +1,8 @@
-const arr = [1, 2, 2, 3, 4, 4, 5, 3, 5, 8];
-
-function removeDuplicates(array) {
-  const arrResult = [];
+export function removeDuplicates<T>(array: T[]): T[] {
+  if (!array.length) return [];
+  const arrResult: T[] = [];
   for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] !== "number") return [];
     let isExist = false;
     for (let j = 0; j < arrResult.length; j++) {
       if (array[i] === arrResult[j]) {
@@ -12,7 +12,5 @@ function removeDuplicates(array) {
     }
     if (!isExist) arrResult.push(array[i]);
   }
-  return { arrResult };
+  return arrResult;
 }
-
-console.log(removeDuplicates(arr));
