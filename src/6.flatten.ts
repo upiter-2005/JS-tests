@@ -10,9 +10,5 @@ export const flatten = <T>(array: T[]): T[] => {
       resArray.push(el);
     }
   }
-
   return resArray;
 };
-
-// const res = flatten([1, [2, [3, [4], 5, 7, [1, [22333]]]]]); // результат: [1, 2, 3, 4]
-// console.log(res);
