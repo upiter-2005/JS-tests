@@ -1,4 +1,4 @@
-export const promiseMyAll = function <T>(
+Promise.promiseMyAll = function <T>(
   promises: (T | Promise<T>)[],
 ): Promise<T[]> {
   if (!promises.length) return Promise.resolve([]);

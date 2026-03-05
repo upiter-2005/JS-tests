@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import "./3.myBind.ts";
 
-describe("smyBindm", () => {
+describe("myBindm", () => {
   test("should bind context correctly", () => {
     const spyFunc = jest.spyOn(console, "log").mockImplementation(() => {});
     const context = { a: 42 };
 
-    function getVal(this: any) {
+    function getVal() {
       console.log(this.a);
     }
 

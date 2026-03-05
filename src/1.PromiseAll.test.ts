@@ -1,10 +1,10 @@
-import { promiseMyAll } from "./1.PromiseAll.ts";
+import "./1.PromiseAll.ts";
 
 describe("promiseAll", () => {
   test("should return empty array promise", async () => {
     const promises: Promise<number>[] = [];
 
-    const result = await promiseMyAll(promises);
+    const result = await Promise.promiseMyAll(promises);
     expect(result).toEqual([]);
   });
 
@@ -18,7 +18,7 @@ describe("promiseAll", () => {
       Promise.resolve(5),
     ];
 
-    const result = await promiseMyAll(promises);
+    const result = await Promise.promiseMyAll(promises);
     expect(result).toEqual([1, 2, 3, 4, true, 5]);
   });
 
@@ -31,7 +31,7 @@ describe("promiseAll", () => {
       Promise.resolve(5),
     ];
 
-    const result = await promiseMyAll(promises);
+    const result = await Promise.promiseMyAll(promises);
     expect(result).toEqual([1, 2, 3, 4, 5]);
   });
 
@@ -44,7 +44,7 @@ describe("promiseAll", () => {
 
     const secondPromise = Promise.resolve(2);
 
-    const result = await promiseMyAll([firstPromise, secondPromise]);
+    const result = await Promise.promiseMyAll([firstPromise, secondPromise]);
     expect(result).toEqual([1, 2]);
   });
 
@@ -53,6 +53,6 @@ describe("promiseAll", () => {
       Promise.resolve(1),
       Promise.reject(new Error("Promise rejected!")),
     ];
-    expect(promiseMyAll(promises)).rejects.toThrow("Promise rejected!");
+    expect(Promise.promiseMyAll(promises)).rejects.toThrow("Promise rejected!");
   });
 });

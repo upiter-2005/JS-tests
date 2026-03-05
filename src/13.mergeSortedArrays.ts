@@ -1,4 +1,4 @@
-function sort(arr) {
+export function sort(arr) {
   for (let i = 0; i < arr.length; i++) {
     let minIndex = i;
     for (let j = i + 1; j < arr.length; j++) {
@@ -11,7 +11,7 @@ function sort(arr) {
   return arr;
 }
 
-function mergeSortedArrays(...args) {
+export function mergeSortedArrays(...args) {
   const buildArr = [];
   for (let i = 0; i < args.length; i++) {
     for (let j = 0; j < args[i].length; j++) {
