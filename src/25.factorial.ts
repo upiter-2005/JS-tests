@@ -1,11 +1,14 @@
-function factorial(n) {
-  if (n < 0) return null;
-  if (n === 0) return 1;
-  //let res = 1;
-  // for(let i = 1; i <= n; i++){
-  //   res *= i
-  // }
-  return n * factorial(n - 1);
+export function factorial(n: number | string): number | null {
+  if (typeof n === "number") {
+    if (n < 0) return null;
+    if (n === 0) return 1;
+
+    const result = factorial(n - 1);
+    if (result === null) return null;
+    return n * result;
+  } else {
+    return 1;
+  }
 }
 
-console.log(factorial(1)); // 120
+console.log(factorial(1));
