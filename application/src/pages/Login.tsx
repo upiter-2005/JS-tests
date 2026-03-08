@@ -1,6 +1,21 @@
-import { Container, Box, Button } from "@mui/material";
+import { Container, Box } from "@mui/material";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+
+  const navigate = useNavigate();
+  const handleSuccess = (credentialResponse: any) => {
+    const decoded: credentialResponseType = jwtDecode(credentialResponse.credential);
+    localStorage.setItem("token", credentialResponse.credential);
+    if(decoded) navigate("/");
+  };
+
+  const handleError = () => {
+    console.log("Login Failed");
+  };
+
   return (
     <Container maxWidth="md">
       <Box
@@ -11,9 +26,10 @@ const Login: React.FC = () => {
           alignItems: "center",
         }}
       >
-        <Button variant="contained" size="large">
-          Авторизироваться через Google
-        </Button>
+        <GoogleLogin
+          onSuccess={handleSuccess}
+          onError={handleError}
+        />
       </Box>
     </Container>
   );
