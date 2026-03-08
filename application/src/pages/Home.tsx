@@ -6,19 +6,21 @@ import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [isAuth, setIsAuth] = useState<string | null>(null);
-  const [decodeData, setDecodeData] = useState<any>();
+  const [decodeData, setDecodeData] = useState<credentialResponseType>();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) { 
+    if (token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsAuth(token);
-      const decodedToken: credentialResponseType = jwtDecode(token);
+      const decodedToken: credentialResponseType =
+        jwtDecode<credentialResponseType>(token);
       setDecodeData(decodedToken);
-    }else{
-      navigate('/login');
+    } else {
+      navigate("/login");
     }
-  }, [])
+  }, [navigate]);
 
   return (
     <Container maxWidth="md">
@@ -28,30 +30,28 @@ const Home: React.FC = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexWrap: "wrap"
+          flexWrap: "wrap",
         }}
       >
         {isAuth && (
-          <Box 
+          <Box
             sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-
-          }}>
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <Typography variant="h4" gutterBottom>
               {decodeData?.family_name} {decodeData?.given_name}
             </Typography>
             <div>{decodeData?.email}</div>
-            <div><img 
-              src={decodeData?.picture} 
-              alt="Auth image" 
-            /></div>
+            <div>
+              <img src={decodeData?.picture} alt="Auth image" />
+            </div>
             <LogoutBtn />
           </Box>
         )}
       </Box>
-      
     </Container>
   );
 };
