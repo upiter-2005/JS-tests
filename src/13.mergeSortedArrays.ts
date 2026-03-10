@@ -12,8 +12,15 @@ export function sort(arr) {
 }
 
 export function mergeSortedArrays(...args) {
+  if (!args.length) {
+    return [];
+  }
   const buildArr = [];
   for (let i = 0; i < args.length; i++) {
+    if (!Array.isArray(args[i])) {
+      continue;
+    }
+
     for (let j = 0; j < args[i].length; j++) {
       buildArr.push(args[i][j]);
     }
