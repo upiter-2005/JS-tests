@@ -1,38 +1,37 @@
-import { Container, Box } from "@mui/material";
-import { GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+
+import { Container, Box } from '@mui/material';
+import { GoogleLogin } from '@react-oauth/google';
+
+import CustomizedSnackbars from '../components/Notification';
+import { useAuthSuccess } from '../hooks/useAuthSuccess';
 
 const Login: React.FC = () => {
+    const { handleSuccess } = useAuthSuccess();
+    const [openError, setOpenError] = useState(false);
 
-  const navigate = useNavigate();
-  const handleSuccess = (credentialResponse: any) => {
-    const decoded: credentialResponseType = jwtDecode(credentialResponse.credential);
-    localStorage.setItem("token", credentialResponse.credential);
-    if(decoded) navigate("/");
-  };
+    const handleError = () => {
+        setOpenError(true);
+        console.log('Login Failed');
+    };
 
-  const handleError = () => {
-    console.log("Login Failed");
-  };
-
-  return (
-    <Container maxWidth="md">
-      <Box
-        sx={{
-          minHeight: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <GoogleLogin
-          onSuccess={handleSuccess}
-          onError={handleError}
-        />
-      </Box>
-    </Container>
-  );
+    return (
+        <>
+            <Container maxWidth="md">
+                <Box
+                    sx={{
+                        minHeight: '100vh',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
+                </Box>
+            </Container>
+            <CustomizedSnackbars isOpen={openError} />
+        </>
+    );
 };
 
 export default Login;
