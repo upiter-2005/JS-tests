@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 import UserData from '../components/UserData';
+import { ROUTES } from '../share/routes';
 
 export interface CredentialResponseType {
     email: string;
@@ -28,7 +29,7 @@ const Home: React.FC = () => {
                     jwtDecode<CredentialResponseType>(credentialHash);
                 setDecodeData(decodedToken);
             } else {
-                navigate('/login');
+                navigate(ROUTES.LOGIN);
             }
         };
         checkAuth();

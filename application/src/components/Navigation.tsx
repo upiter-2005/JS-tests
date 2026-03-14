@@ -7,10 +7,10 @@ const Navbar: React.FC = () => {
     return (
         <Toolbar>
             <Box sx={{ display: 'flex', gap: 2 }}>
-                <Button color="primary" component={Link} to={ROUTES.home}>
+                <Button color="primary" component={Link} to={ROUTES.HOME}>
                     Home
                 </Button>
-                <Button color="primary" component={Link} to={ROUTES.login}>
+                <Button color="primary" component={Link} to={ROUTES.LOGIN}>
                     Login
                 </Button>
             </Box>
