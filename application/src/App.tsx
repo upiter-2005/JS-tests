@@ -6,16 +6,16 @@ import Login from './pages/Login';
 import { ROUTES } from './share/routes';
 
 function App() {
-    return (
-        <div>
-            <Navbar />
+  return (
+    <div>
+      <Navbar />
 
-            <Routes>
-                <Route path={ROUTES.HOME} element={<Home />} />
-                <Route path={ROUTES.LOGIN} element={<Login />} />
-            </Routes>
-        </div>
-    );
+      <Routes>
+        <Route path={ROUTES.HOME} element={<Home />} />
+        <Route path={ROUTES.LOGIN} element={<Login />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;

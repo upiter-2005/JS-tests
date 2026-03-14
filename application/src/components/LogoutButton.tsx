@@ -1,19 +1,13 @@
 import { Button } from '@mui/material';
-import { googleLogout } from '@react-oauth/google';
-import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { ROUTES } from '../share/routes';
+import { useAuth } from '../hooks/useAuth';
 
 const LogoutButton: React.FC = () => {
-    const navigate = useNavigate();
+  const {cleanToken} = useAuth();
+  const { t } = useTranslation();
 
-    const logout = () => {
-        googleLogout();
-        localStorage.removeItem('token');
-        navigate(ROUTES.LOGIN);
-    };
-
-    return <Button onClick={logout}>Logout</Button>;
+  return <Button onClick={cleanToken}>{t('logout')}</Button>;
 };
 
 export default LogoutButton;
