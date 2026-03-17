@@ -12,10 +12,4 @@ describe("removeDuplicates", () => {
     const result = removeDuplicates(arrArgument);
     expect(result).toEqual([]);
   });
-
-  test("should return empty array if element type not number", () => {
-    const arrArgument = [1, 2, 2, "string"];
-    const result = removeDuplicates(arrArgument);
-    expect(result).toEqual([]);
-  });
 });

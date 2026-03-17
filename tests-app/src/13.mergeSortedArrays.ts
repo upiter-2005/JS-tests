@@ -11,12 +11,17 @@ export function sort(arr) {
   return arr;
 }
 
-export function mergeSortedArrays(...args) {
-  const buildArr = [];
-  for (let i = 0; i < args.length; i++) {
-    for (let j = 0; j < args[i].length; j++) {
-      buildArr.push(args[i][j]);
+export function mergeSortedArrays(...args: number[][]): number[] {
+  if (!args.length) {
+    return [];
+  }
+  const buildArr: number[] = [];
+  for(const arr of args){
+    for (const el of arr){
+      buildArr.push(el)
     }
   }
+
+  
   return sort(buildArr);
 }
