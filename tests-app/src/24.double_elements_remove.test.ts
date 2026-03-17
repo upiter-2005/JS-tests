@@ -8,8 +8,7 @@ describe("removeDuplicates", () => {
   });
 
   test("should return empty array", () => {
-    const arrArgument = [];
-    const result = removeDuplicates(arrArgument);
+    const result = removeDuplicates([]);
     expect(result).toEqual([]);
   });
 });
