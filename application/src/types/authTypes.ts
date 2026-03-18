@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 
-export interface CredentialResponse {
+import type { CredentialResponse } from '@react-oauth/google';
+
+export interface CredentialResponseData {
   email?: string;
   family_name?: string;
   given_name?: string;
@@ -9,9 +11,10 @@ export interface CredentialResponse {
 }
 
 export interface AuthDataContext {
-  token: CredentialResponse | null;
+  token: CredentialResponseData | null;
   setupToken: () => void;
   cleanToken: () => void;
+  handleSuccess: (credentialResponseData: CredentialResponse) => void
 }
 
 export interface AuthProviderProps {

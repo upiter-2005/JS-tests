@@ -4,7 +4,6 @@ import Alert from '@mui/material/Alert';
 import Snackbar, { type SnackbarCloseReason } from '@mui/material/Snackbar';
 import { useTranslation } from 'react-i18next';
 
-
 export default function CustomizedSnackbars({ open = false }) {
   const [isOpen, setIsOpen] = React.useState(open);
   const { t } = useTranslation();

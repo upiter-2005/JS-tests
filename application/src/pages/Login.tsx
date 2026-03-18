@@ -4,10 +4,10 @@ import { Container, Box } from '@mui/material';
 import { GoogleLogin } from '@react-oauth/google';
 
 import CustomizedSnackbars from '../components/Notification';
-import { useAuthSuccess } from '../hooks/useAuthSuccess';
+import { useAuth } from '../hooks/useAuth';
 
 const Login: React.FC = () => {
-  const { handleSuccess } = useAuthSuccess();
+  const { handleSuccess } = useAuth();
   const [openError, setOpenError] = useState(false);
 
   const handleError = () => {

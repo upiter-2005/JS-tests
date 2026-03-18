@@ -1,10 +1,10 @@
 import { Box, CardMedia, Typography } from '@mui/material';
 
 import LogoutBtn from './LogoutButton';
-import type { CredentialResponse } from '../types/authTypes';
+import type { CredentialResponseData } from '../types/authTypes';
 
 interface UserData {
-  decodeData: CredentialResponse;
+  decodeData: CredentialResponseData;
 }
 
 const UserData: React.FC<UserData> = ({ decodeData }) => {
