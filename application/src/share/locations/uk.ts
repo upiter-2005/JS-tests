@@ -4,4 +4,5 @@ export default {
   logout: 'Вихід',
   en: 'англ',
   ua: 'укр',
+  loginFailed: 'Login Failed!',
 };

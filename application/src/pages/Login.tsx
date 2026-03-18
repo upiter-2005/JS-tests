@@ -28,7 +28,7 @@ const Login: React.FC = () => {
           <GoogleLogin onSuccess={handleSuccess} onError={handleError} />
         </Box>
       </Container>
-      <CustomizedSnackbars isOpen={openError} />
+      <CustomizedSnackbars open={openError} />
     </>
   );
 };
