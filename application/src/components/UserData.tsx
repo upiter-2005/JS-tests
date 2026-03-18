@@ -3,11 +3,11 @@ import { Box, CardMedia, Typography } from '@mui/material';
 import LogoutBtn from './LogoutButton';
 import type { CredentialResponse } from '../types/authTypes';
 
-interface IUserData {
+interface UserData {
   decodeData: CredentialResponse;
 }
 
-const UserData: React.FC<IUserData> = ({ decodeData }) => {
+const UserData: React.FC<UserData> = ({ decodeData }) => {
   return (
     <Box
       sx={{
