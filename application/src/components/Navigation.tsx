@@ -16,11 +16,11 @@ const Navbar: React.FC = () => {
           {t('login')}
         </Button>
         <Button color="primary" onClick={() => i18n.changeLanguage('en')}>
-          EN
+          {t('en')}
         </Button>
 
         <Button color="primary" onClick={() => i18n.changeLanguage('uk')}>
-          UA
+          {t('ua')}
         </Button>
       </Box>
     </Toolbar>
