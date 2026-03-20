@@ -1,16 +1,12 @@
-import { useEffect } from 'react';
-
 import { Container, Box } from '@mui/material';
 
 import UserData from '../components/UserData';
 import { useAuth } from '../hooks/useAuth';
 
 const Home: React.FC = () => {
-  const { token, setupToken } = useAuth();
+  const { token } = useAuth();
 
-  useEffect(() => {
-    setupToken();
-  }, []);
+
 
   return (
     <Container maxWidth="md">

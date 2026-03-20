@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 
 import type { CredentialResponse } from '@react-oauth/google';
 import { googleLogout } from '@react-oauth/google';
@@ -7,21 +7,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from './AuthContext';
 import { ROUTES } from '../../share/routes';
-import type { AuthProviderProps, CredentialResponseData } from '../../types/authTypes';
+import type { CredentialResponseData } from '../../types/authTypes';
+ interface AuthProviderProps {
+  children: ReactNode;
+}
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
   const [token, setToken] = useState<CredentialResponseData>({});
-
-  const setupToken = () => {
-    const credentialHash = localStorage.getItem('token');
-    if (credentialHash) {
-      const decodedToken: CredentialResponseData = jwtDecode<CredentialResponseData>(credentialHash);
-      setToken(decodedToken);
-    } else {
-      navigate(ROUTES.LOGIN);
-    }
-  };
 
   const cleanToken = () => {
     googleLogout();
@@ -38,8 +31,21 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
+  useEffect(() => {
+      const setupToken =  () => {
+        const credentialHash = localStorage.getItem('token');
+        if (credentialHash) {
+          const decodedToken: CredentialResponseData = jwtDecode<CredentialResponseData>(credentialHash);
+          setToken(decodedToken);
+        } else {
+          navigate(ROUTES.LOGIN);
+        }
+      }
+      setupToken()
+  }, [])
+
   return (
-    <AuthContext.Provider value={{ token, setupToken, cleanToken, handleSuccess }}>
+    <AuthContext.Provider value={{ token, cleanToken, handleSuccess }}>
       {children}
     </AuthContext.Provider>
   );
