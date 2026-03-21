@@ -9,13 +9,13 @@ import { AuthContext } from './AuthContext';
 import {getHash, setHash, removeHash} from "../../share/helpers/tokenHash"
 import { ROUTES } from '../../share/routes';
 import type { CredentialResponseData } from '../../types/authTypes';
- interface AuthProviderProps {
+interface AuthProviderProps {
   children: ReactNode;
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const navigate = useNavigate();
-  const [token, setToken] = useState<CredentialResponseData>({});
+  const [userData, setUserData] = useState<CredentialResponseData>({});
 
   const cleanToken = () => {
     googleLogout();
@@ -37,16 +37,16 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const credentialHash = getHash();
         if (credentialHash) {
           const decodedToken: CredentialResponseData = jwtDecode<CredentialResponseData>(credentialHash);
-          setToken(decodedToken);
+          setUserData(decodedToken);
         } else {
           navigate(ROUTES.LOGIN);
         }
       }
-      setupToken()
+      setupToken();
   }, [])
 
   return (
-    <AuthContext.Provider value={{ token, cleanToken, handleSuccess }}>
+    <AuthContext.Provider value={{ token: userData, cleanToken, handleSuccess }}>
       {children}
     </AuthContext.Provider>
   );
