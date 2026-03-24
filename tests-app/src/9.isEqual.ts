@@ -1,0 +1,20 @@
+export {};
+
+declare global {
+  interface Array<T> {
+    isEqual(array: T[]): boolean;
+  }
+}
+
+Array.prototype.isEqual = function (array) {
+  if (!Array.isArray(array) || array.length !== this.length) {
+    return false;
+  }
+
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] !== array[i]) {
+      return false;
+    }
+  }
+  return true;
+};

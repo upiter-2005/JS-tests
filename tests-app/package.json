@@ -1,0 +1,40 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint",
+    "lint:fix": "eslint src --fix --no-cache --max-warnings=0",
+    "prepare": "husky",
+    "prettier": "npx prettier . --write"
+  },
+  "author": "",
+  "license": "ISC",
+  "lint-staged": {
+    "**/*": [
+      "eslint src ",
+      "prettier --write --ignore-unknown"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-typescript": "^7.28.5",
+    "@eslint/js": "^10.0.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.3.3",
+    "babel-jest": "^30.2.0",
+    "eslint": "^10.0.2",
+    "globals": "^17.3.0",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "lint-staged": "^16.2.7",
+    "prettier": "3.8.1",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  }
+}
